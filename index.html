@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IJ</title>
+    <link rel="icon" type="image/x-icon" href="pictures/main.ico" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/04fee9afe6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="topbar" data-cursor="topbar-cursor">
+        <div class="main">
+            <div class="logo" id="front">
+                <img src="https://ifh.cc/g/BVaqnc.jpg" height="50px">
+            </div>
+        </div>
+
+        <ul class="topbarlists">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#join">Join</a></li>
+        </ul>
+    </nav>
+
+    <nav class="midbar" data-cursor="midbar-cursor">
+        <div class="circle__picture" style="text-align: center;">
+            <img id="circle__p" src="pictures/umbrella.png">
+        </div>
+        <div class="under__picture" style="text-align: center;"><strong><b>IJ</b>, For you</strong><br><a>Discord IJDS Server</a></div>
+    </nav>
+
+    <div class="space" data-cursor="cursor4all"></div>
+
+    <nav class="botbar__first"  id="about" data-cursor="cursor4all">
+        <div class="informations">
+            <h1>Since September 26, 2022</h1>
+            <strong><a>Bots in use:</a></strong><br><br>
+            <a class="thiner">Hydra, K-Currencies, Laythe, lofi girl v2, MEE6, Ticket Tool, TNS봇, VerifyAuth</a>
+        </div>
+        <div class="about__picture"></div>
+        <div class="Profile">
+            <h1 class="staff__and__managers">Staff and Managers</h1>
+            <div class="user__profile">
+                <img src="pictures/profile_ij.jpg">
+                <p>ij<a>#6133</a></p>
+            </div>
+            <div class="user__profile">
+                <img src="pictures/profile_Elate.jpg">
+                <p>Elate<a>#0814</a></p>
+            </div>
+        </div>
+        <div class="join__id" id="join"></div>
+    </nav>
+
+    <nav class="botbar__second" data-cursor="cursor4all">
+        <div class="join__text">
+            <h1>If you want join this server</h1>
+            <a>Press this button</a>
+        </div>
+        <div class="join__button">
+            <button class="join" type="button" onclick="location.href='https:discord.gg/YpuEH5XryV'">Join</button>
+        </div>
+        <div class="under__space"></div>
+    </nav>
+
+    <nav class="footer" data-cursor="cursor4all">
+        <div class="footer__container">
+            <p class="footer__text__here">Copyright &copy; Ijds 2022</p>
+        </div>
+    </nav>
+    
+    <div id="mouse-cursor">
+        <div></div>
+    </div>
+
+    <script>
+        const cursorParents = document.getElementById('mouse-cursor')
+        const cursorChild = cursorParents.children[0]
+        window.addEventListener('mousemove', mousemove)
+        window.addEventListener('mousedown', mousedown)
+        window.addEventListener('mouseup', mouseup)
+
+        let stage = ''
+        let cursorX = 0, cursorY = 0
+        function mousemove(e) {
+            cursorX = e.clientX - cursorParents.offsetWidth / 2
+            cursorY = e.clientY - cursorParents.offsetHeight / 2
+            cursorParents.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`
+        
+
+        switch(e.target.getAttribute('data-cursor')) {
+            case 'midbar-cursor':
+                if (stage === 'midbar-cursor') return
+                stage = 'midbar-cursor'
+                console.log('midbar-cursor')
+                break
+
+            case 'cursor4all':
+                if (stage === 'cursor4all') return
+                stage = 'cursor4all'
+                console.log('cursor4all')
+                break
+
+            default:
+                if (stage === 'default') return
+                stage = ''
+                console.log('default')
+                break
+        }
+    }
+
+
+        function mousedown(e) {
+            scale *= 0.8
+            cursorChild.style.setProperty('--cursor-scale', scale)
+        }
+        function mouseup(e) {
+            scale *= 1.25
+            cursorChild.style.setProperty('--cursor-scale', scale)
+        }
+
+    </script>
+</body>
+</html>
